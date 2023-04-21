@@ -1,0 +1,13 @@
+# Default ignored files
+megoldas/.idea/shelf/
+megoldas/.idea/workspace.xml
+# Editor-based HTTP Client requests
+megoldas/.idea/httpRequests/
+# Datasource local storage ignored files
+megoldas/.idea/dataSources/
+megoldas/.idea/dataSources.local.xml
+
+# The java files created by IDEA
+megoldas/out/
+# The full content zipped with whatever name it has
+*.zip
