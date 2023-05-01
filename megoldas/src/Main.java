@@ -177,6 +177,7 @@ public class Main {
     public static List<?>[] feladat2(List<String> szurnivalo) {
         // létrehozzuk a három listát, amikbe majd beletesszük a szűrt elemeket
         // általános tipp: ha egy változó típusa nem egy konkrét osztály, hanem egy absztrakt osztály vagy interface (esetünkben List), akkor a konkrét osztályok példányait is tárolhatja (ArrayList, LinkedList, Vector, Stack), érdemes ezt használni
+        // ez a tanács akkor is érvényes, amikor hagyományos osztályokról van szó, amik között öröklődés van: ekkor is érdemesebb az ősosztályt használni, amennyiben rendelkezik azokkal a funkciókkal, amikre szükségünk van
         List<Boolean> igazsagertekek = new ArrayList<>();
         List<Long> szamok = new ArrayList<>();
         List<String> szovegek = new ArrayList<>();
@@ -207,7 +208,7 @@ public class Main {
         /* itt látunk valami izgalmasat (a szemfüles a fejlécben is láthatott): a generikus típusnál ?-t (ún. wildcard-ot) használuk, ha nem tudjuk, hogy milyen típusú lesz a lista
         alapvetően egy tömbben csak egyféle értéket tárolhatunk, és bár mindhárom értékünk lista, nem ugyanolyan listák, ezért nem rakhatjuk őket pl egy List<Integer>[]-be
         használhatjuk ez esetben a raw lista típust, az is működik, de a wildcard-okkal való megvalósítás sokkal szebb, és az IDEA sem panaszkodik miatta */
-        // a wildcard-ok nem részei a prog1 anyagnak, de akit érdekel, a következő linken bővebben utánuk olvashat: https://okt.inf.szte.hu/alkfejl1/gyakorlat/misc/generics/#wildcards
+        // a wildcard-ok nem részei a prog1 gyakorlati anyagnak, de akit érdekel, a következő linken bővebben utánuk olvashat: https://okt.inf.szte.hu/alkfejl1/gyakorlat/misc/generics/#wildcards
     }
 
     /**
@@ -362,7 +363,7 @@ public class Main {
         // egy új Map létrehozása, amire tekinthetünk Entry Set-ként
         Map<String, String> naplo = new HashMap<>();
         // enhanced for ciklussal (for-each) a legegyszerűbb (és leggyorsabb) végigmenni a listán
-        for (Map.Entry<String, String> feljegyzes : feljegyzesek) {
+        for (Map.Entry<String, String> feljegyzes: feljegyzesek) {
             /* minden feljegyzés szövegére megnézzük, hogy a szavak száma nagyobb-e 5-nél (feldaraboljuk a szöveget szóközök mentén, és ennek a tömbnek az elemszáma a szavak száma),
             majd megnézzük, hogy az eredeti szöveg tartalmazza-e valamelyik szót a megadottak közül, és ha nem, hozzáadjuk a feljegyzést a Map-hez */
             if (feljegyzes.getValue().split(" ").length > 5 && !feljegyzes.getValue().contains("kínos") && !feljegyzes.getValue().contains("szerelmes") && !feljegyzes.getValue().contains("anime")) {
@@ -371,7 +372,7 @@ public class Main {
                 //naplo.entrySet().add(feljegyzes);
                 /* ez nem fog működni, az entrySet metódus leírását olvasva a következő sort láthatjuk:
                 "It does not support the add or addAll operations."
-                ha egy olyan metódust használunk, aminek nem ismerjük pontosan a működését, érdemes átfutni a leírást, különben kellemetlen meglepetésekbe (pl. UnsupportedOperationException) futhatunk */
+                ha egy olyan metódust használunk, aminek nem ismerjük pontosan a működését, érdemes átfutni a leírást, különben kellemetlen meglepetésekbe (pl. itt: UnsupportedOperationException) futhatunk */
             }
         }
         return naplo;
