@@ -24,7 +24,7 @@ public class Main {
         koviFeladat();
 
         ArrayList<String> szurnivalo = new ArrayList<>(
-            Arrays.asList("435435453", "true", "trualma", "435345n34535", "hamis", "igaz", "9223372036854775807", "false", "nulla")
+            Arrays.asList("435435453", "true", "trualma", "435345n34535", "hamis", "igaz", "9223372036854771", "false", "nulla", "3.14159")
         );
         List<?>[] szurt = feladat2(szurnivalo);
         for(List<?> l : szurt) {
@@ -190,8 +190,8 @@ public class Main {
      * Valaki összekeverte az értékeket: mindet szöveggé alakította, és beledobálta egy listába.
      * A feladatod, hogy szétválogasd őket típus szerint: igazságérték, egész szám, szöveg.
      * Ha az adott szöveg a "true" vagy "igaz", vagy "false" vagy "hamis", akkor legyen belőle megfelelő igazságérték.
-     * Ha az adott szöveg egy egész szám, akkor legyen belőle egy ilyen szám. Figyelj arra, hogy akár 15 jegyű egészeket
-     * is kellhet eltárolni!
+     * Ha az adott szöveg egy egész szám, akkor alakítsd át azzá a számmá. Figyelj arra, hogy akár 15 jegyű egészeket is
+     * kellhet eltárolni!
      * Amelyik szöveg nem esik bele egyik kategóriába sem, az maradjon szöveg.
      * Az igazságértékek, számok és szövegek listáját rakd bele egy tömbbe, és ezt adja vissza a függvény!
      * A szűrés tartsa meg az azonos kategóriába eső elemek sorrendjét!
@@ -248,9 +248,9 @@ public class Main {
 
     /**
      * Írj egy függvényt, ami egy egész számokból álló listát vár paraméterként.
-     * A függvény adjon vissza egy új listát, amelyben az eredeti lista páros elemei duplázva szerepelnek.
+     * A függvény adjon vissza egy új listát, amelyben az eredeti lista páros elemei szerepelnek megduplázva.
      * @param lista a lista, amelyből egy újat szeretnénk készíteni
-     * @return a duplázott páros számokat tartalmazó lista
+     * @return az új lista
      */
     public static List<Integer> feladat3(List<Integer> lista) {
         /* egy új listát kell létrehoznunk: ezt megtehetjük az egyparaméteres konstruktorral, ami egy másik kollekciót
@@ -318,10 +318,11 @@ public class Main {
     /**
      * Írj egy függvényt, ami megszámolja, hogy a paraméterként kapott szöveg-szöveg leképezés kulcsai és értékei között
      * hány különböző 4 betűs szó van!
-     * @param map a vizsgálandó Map
+     * @param map a vizsgálandó leképezés
      * @return a szavak száma
      */
     public static int feladat5(Map<String, String> map) {
+        // recap: a leképezések Java-ban a Map interface-t implementáló osztályok
         /* érdemes egy halmazba gyűjteni a szavakat, mert így nem lesznek benne duplikátumok (tehát össze tudjuk
         számolni a különböző szavakat) */
         // a Map-ek keySet és values metódusai visszaadják a kulcsokat és értékeket tartalmazó halmazokat
@@ -338,7 +339,9 @@ public class Main {
     }
 
     /**
-     * Magdi néni szeretne utánajárni, hogy a 3.A nebulói közül kik buknak meg.
+     * Magdi néni szeretne utánajárni, hogy a 3.A nebulói közül kik buknak meg. Sajnos, bár Magdi néni Javában olvasta
+     * be az adatokat, az osztály fogalmát csak a 3.A kapcsán ismeri, ezért különböző kollekciók segítségével tárolta el
+     * a tanulók év végi jegyeit.
      * Egy leképezésben a diákok neveihez újabb leképezéseket rendelt, amik a tantárgy nevéhez az érdemjegyet (1-5)
      * rendelték.
      * Írj egy függvényt, ami ilyen formában várja az adatokat, és térjen vissza azoknak a diákoknak (csak a nevüknek) a
