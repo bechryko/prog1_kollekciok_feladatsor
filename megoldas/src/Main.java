@@ -41,6 +41,36 @@ public class Main {
         feladat4();
 
         koviFeladat();
+        // csak a két statikus metódusra írtam egyszerű teszteket, a többi függvényt a példamegoldás alapján ellenőrizd
+
+        Dal dal1 = Dal.general("Az ősboszorkány", new String[] { "syncopated", "edm" }, "Ó, hős vándor, kit nem rettentett meg az erőszak,\nki megküzdött, hogy megszűnjön a varázslat.\nDe a végső csatában, ő is elesett,\nnem maradt, csak a történet, mit szél hozzánk repített.");
+        Dal dal2 = Dal.general("Instrumentál", new String[] {});
+        Dal dal3 = Dal.general("PHP", new String[] { "romantic rock" }, "Itt van a PHP, a fejlesztők rémálma,\nAz érzékenységében még hibákat találva.\nSzintaktikai káosz, egy logika nélküli labirintus,\nMinden sor egy új probléma, kétségbe ejtő kintus.");
+        Dal dal4 = Dal.general("CSS", new String[] { "symphonic rock" }, "[képzelj ide szöveget]");
+        Dal dal5 = Dal.general("Irinyi", new String[] { "edm", "pop" }, "Az Irinyi, hol a tudás falai állnak,\nSzépségében minden informatikus bámul.\nGépteremben minden gép, mint villám suhan,\nProgramok tökéletesek, minden pillanatban.", "Ó, Irinyi, te csodás technológia birodalma,\nAhol minden működik, ahol nincs gond, csak dal ma.\nHangrendszerek, mint álom, mindig tisztán szólnak,\nEz a hely, ahol innovációk születnek, és honolnak.");
+
+        System.out.println("Dalok generálása:");
+        System.out.println(dal1);
+        System.out.println(dal2);
+        System.out.println(dal3);
+        System.out.println(dal4);
+        System.out.println(dal5);
+        System.out.println();
+
+        Dal dal6 = Dal.bovit(dal1, dal1.getCim() + "2", new String[] {});
+        Dal dal7 = Dal.bovit(dal2, dal2.getCim() + "2", new String[] {}, "la-la-la-la");
+        Dal dal8 = Dal.bovit(dal3, dal3.getCim() + "2", new String[] { "dance rock" }, "Ó, PHP, miért vagy ilyen bonyolult?\nKezelhetetlen és zavaros, minden kódsorod folt.\nA memóriakezelésed gyenge, a sebességed lassú,\nRagyog a hibák tengerében, valódi kódolás gyászú.");
+        Dal dal9 = Dal.bovit(dal4, dal4.getCim() + "2", new String[] { "symphonic rock" }, "[képzelj ide még több szöveget]", "[ide is képzelj szöveget, hogy jó legyen a teszteset]");
+        Dal dal10 = Dal.bovit(dal5, dal5.getCim() + "2", new String[] { "edm", "pop", "melancholic", "epic" }, "[refrén újra]");
+
+        System.out.println("Dalok bővítése:");
+        System.out.println(dal6);
+        System.out.println(dal7);
+        System.out.println(dal8);
+        System.out.println(dal9);
+        System.out.println(dal10);
+
+        koviFeladat();
 
         Map<String, String> szavak = new HashMap<>() {{
             put("zöld", "alma");
@@ -48,7 +78,7 @@ public class Main {
             put("prog1", "zöld");
             put("autó", "piros");
         }};
-        System.out.println(feladat5(szavak));
+        System.out.println(feladat6(szavak));
 
         koviFeladat();
 
@@ -79,7 +109,7 @@ public class Main {
                 put("történelem", 1);
             }});
         }};
-        System.out.println(feladat6(jegyek));
+        System.out.println(feladat7(jegyek));
 
         koviFeladat();
 
@@ -93,7 +123,7 @@ public class Main {
             put(Integer.MAX_VALUE / 3, Integer.MAX_VALUE / 3 * 3);
             put(8, 9);
         }};
-        feladat7(KarcsiLekepezese);
+        feladat8(KarcsiLekepezese);
         System.out.println(KarcsiLekepezese);
 
         koviFeladat();
@@ -105,7 +135,7 @@ public class Main {
         ViviFeljegyzesei.add(new AbstractMap.SimpleEntry<>("2023. január 23.", "Megnéztem egy anime epizódot. Nagyon tetszett. De ha bárki megtudja..."));
         ViviFeljegyzesei.add(new AbstractMap.SimpleEntry<>("2023. március 14.", "Ma ismét elmentem egy buliba barátnőmékhez. Szuperül éreztem magam!!"));
         ViviFeljegyzesei.add(new AbstractMap.SimpleEntry<>("2023. március 15.", "Úgy fáj a fejem, meghalok..."));
-        for(Map.Entry<String, String> e: feladat8(ViviFeljegyzesei).entrySet()) {
+        for(Map.Entry<String, String> e: feladat9(ViviFeljegyzesei).entrySet()) {
             System.out.println(e.getKey() + ": " + e.getValue());
         }
 
@@ -117,14 +147,14 @@ public class Main {
             add(new HashSet<>(Arrays.asList(-1, 2, -3, 4, -5)));
             add(new HashSet<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
         }};
-        Map<HalmazOsztalyozas, Integer> osztalyozo = feladat9();
+        Map<HalmazOsztalyozas, Integer> osztalyozo = feladat10();
         for(Set<Integer> h: halmazok) {
             System.out.println(h + " halmaz osztalya: " + osztalyozo.get(new HalmazOsztalyozas(h)));
         }
 
         koviFeladat();
 
-        String[] megold = feladat10(
+        String[] megold = feladat11(
             new String[] {"piros", "kék", "zöld"},
             new String[0],
             new String[] {"sárga", "lila"},
@@ -139,8 +169,8 @@ public class Main {
         JanoskaLevele.add(new Jatek("Szabó Tamás és Fülöp Vanda kalkulus feladatgyűjteménye", 1));
         JanoskaLevele.add(new Jatek("nem lyukas zokni", 100));
         JanoskaLevele.add(new Jatek("Gercsós puzzle", 12));
-        System.out.println(feladat11(JanoskaLevele, 2));
-        System.out.println(feladat11(JanoskaLevele, 20));
+        System.out.println(feladat12(JanoskaLevele, 2));
+        System.out.println(feladat12(JanoskaLevele, 20));
     }
 
     /**
@@ -321,7 +351,7 @@ public class Main {
      * @param map a vizsgálandó leképezés
      * @return a szavak száma
      */
-    public static int feladat5(Map<String, String> map) {
+    public static int feladat6(Map<String, String> map) {
         // recap: a leképezések Java-ban a Map interface-t implementáló osztályok
         /* érdemes egy halmazba gyűjteni a szavakat, mert így nem lesznek benne duplikátumok (tehát össze tudjuk
         számolni a különböző szavakat) */
@@ -350,7 +380,7 @@ public class Main {
      * @param diakok a diákok és az érdemjegyeik
      * @return a diákok nevei, akik megbuktak
      */
-    public static List<String> feladat6(Map<String, Map<String, Integer>> diakok) {
+    public static List<String> feladat7(Map<String, Map<String, Integer>> diakok) {
         // a fejlécben látszik a kacifántosan megfogalmazott függvényparaméter típusa
         // létrehozzuk a listát a bukott diákok nevei (Stringek) számára
         ArrayList<String> bukottDiakok = new ArrayList<>();
@@ -397,7 +427,7 @@ public class Main {
      * benne.)
      * @param lekepezes Karcsi szeretett leképezése
      */
-    public static void feladat7(Map<Integer, Integer> lekepezes) {
+    public static void feladat8(Map<Integer, Integer> lekepezes) {
         /* az első megoldás egy eléggé brute-force módszer: végigmegyünk az összes lehetséges kulcson, aminek a
         3-szorosa szerepelhet értékként, és töröljük ezeket az elemeket */
         /*for(int i = Integer.MIN_VALUE / 3; i <= Integer.MAX_VALUE / 3; i++)
@@ -420,7 +450,7 @@ public class Main {
      * @param feljegyzesek a feljegyzések: Entry-k listája
      * @return a napló, egy asszociatív tömb
      */
-    public static Map<String, String> feladat8(List<Map.Entry<String, String>> feljegyzesek) {
+    public static Map<String, String> feladat9(List<Map.Entry<String, String>> feljegyzesek) {
         // a feladat lényegében egy Entry lista Entry halmazzá (azaz Map-pé) alakítása, néhány elem kiszűrésével
         // egy új Map létrehozása, amire tekinthetünk Entry Set-ként
         Map<String, String> naplo = new HashMap<>();
@@ -457,7 +487,7 @@ public class Main {
      * hívás visszaadja az osztályt, amelyhez tartozik a halmaz.
      * @return a halmazok osztályozását megvalósító Map
      */
-    public static Map<HalmazOsztalyozas, Integer> feladat9() {
+    public static Map<HalmazOsztalyozas, Integer> feladat10() {
         /* ahogy a feladatleírásban lévő példa függvényhívásból látszik, a Map kulcsa egy HalmazOsztalyozas, értéke
         pedig egy Integer (lehet az osztály neve egy String is, ez igazából csak elnevezésbeli különbség) */
         Map<HalmazOsztalyozas, Integer> osztalyozas = new HashMap<>();
@@ -482,7 +512,7 @@ public class Main {
      * @param napok a napok, a kimosott pólók színeivel
      * @return az Áronka által felvett pólók színei (sorrendben)
      */
-    public static String[] feladat10(String[]... napok) {
+    public static String[] feladat11(String[]... napok) {
         // Áronka anyukája egy kupacba, egymás tetejére pakolja a ruhákat, így a legkézenfekvőbb kollekció a Stack
         Stack<String> szekreny = new Stack<>();
         // kezdetben hozzáadjuk az alapból szekrényben lévő pólókat
@@ -523,7 +553,7 @@ public class Main {
      * @param n hány játékot tud megvenni Jézuska
      * @return a megvásárolt játékok
      */
-    public static Set<String> feladat11(List<Jatek> level, int n) {
+    public static Set<String> feladat12(List<Jatek> level, int n) {
         // érdemes prioritási sort használni, ha már van a játékoknak prioritása (lásd a Jatek osztály megvalósítását)
         // a prioritási sor az objektumok compareTo metódusa segítségével rendezi sorba az elemeket
         PriorityQueue<Jatek> jatekok = new PriorityQueue<>(level);
